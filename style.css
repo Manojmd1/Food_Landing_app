@@ -1,0 +1,285 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color:#222;
+}
+
+
+/* Navbar */
+.navbar {
+  background: #f57676;;
+  padding: 0.3rem 0;
+  text-align: center;
+  outline: none; /* for focus-within */
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 4rem;
+  align-items: center;
+}
+
+.navbar .nav-links li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.navbar .nav-links li a:hover {
+  color: white;
+}
+
+/* Hamburger button always visible */
+.menu-btn {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: black;
+  padding: 0;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  min-height: 90vh;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1;
+  background: linear-gradient(to right, #fff8b5, #fe5dbb50);
+  padding: 4rem 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text h1 {
+  .hero-text h1 {
+  font-family: 'Merriweather', cursive;
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+  letter-spacing: 1px;
+}
+
+}
+
+
+.hero-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  word-wrap: break-word;
+}
+
+.btn{
+  display: inline-block;
+  background: #f57676;
+  color: #ffffff;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;            /* <-- sharp corners */
+  width: auto;
+  max-width: fit-content;
+  box-shadow: none;           /* no soft shadow */
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.hero-img {
+  flex: 1;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .navbar .nav-links {
+    gap: 1.5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero-text {
+    padding: 3rem 2rem;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-text p {
+    max-width: 90%;
+  }
+
+  .hero-img {
+    height: 300px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .navbar .nav-links {
+    flex-direction: column;
+    display: none; /* hidden initially */
+    gap: 0.5rem;
+    width: 100%;
+    background: #f57676;;
+  }
+
+  /* Expand nav links when hamburger clicked */
+  .navbar:focus-within .nav-links {
+    display: flex;
+  }
+
+  .navbar .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .nav-links li a {
+    color: white;
+    font-size: 1.1rem;
+  }
+
+  .hero-text {
+    padding: 2rem 1rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 0.6rem 1.2rem;
+  }
+
+  .hero-img {
+    height: 200px;
+  }
+}
+
+/* --- GALLERY HERO SECTION 2 - FINAL CORRECTED CODE --- */
+.gallery-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to right, #fff8b5, #fe5dbb50);
+  padding: 4rem 2rem;
+}
+
+.gallery-hero .gallery-content {
+  display: flex;
+  max-width: 1000px;
+  width: 80%;
+  gap: 3rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center; 
+}
+
+/* Collage Grid - fixed size without shifting */
+.gallery-hero .image-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 1rem;
+  flex: 1.2;
+  width: 90%;          /* make collage smaller but keep layout */
+  max-width: 450px;    /* limit max width */
+  height: auto;
+}
+
+.gallery-hero .image-collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-hero .image-collage .top-left-square,
+.gallery-hero .image-collage .bottom-left-square {
+  aspect-ratio: 1 / 1; 
+}
+
+.gallery-hero .image-collage .right-vertical { 
+  grid-column: 2 / 3; 
+  grid-row: 1 / 3; 
+}
+
+.gallery-hero .cta-block {
+  flex: none;                /* prevent unwanted stretching */
+  width: 420px;              /* fixed width */
+  height: 280px;             /* fixed height → rectangle */
+  background: #f57676;
+  padding: 2.5rem;
+  color: white;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* center text vertically */
+  align-items: flex-start;   /* keep text left-aligned */
+}
+
+
+.gallery-hero .sub-heading{
+  color: black;
+}
+.gallery-hero h2{
+  color: black;
+  font-size: 35px;
+}
+.gallery-hero .click-link {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color:black;
+  text-decoration: none;   /* ✅ removes underline */
+}
+
+
+/* 📱 Mobile/Tablet Fix */
+@media (max-width: 992px) {
+  .gallery-hero .gallery-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gallery-hero .image-collage {
+    max-height: 400px; 
+    /* Key: On mobile, ensure the collage container width is 100% */
+    width: 100%;
+    min-width: auto;
+  }
+}
